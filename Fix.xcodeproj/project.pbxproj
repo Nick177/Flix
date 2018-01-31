@@ -11,12 +11,12 @@
 		4AF0957A839BB86182B9380C /* Pods_FixUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFE80063119CCDB1E4A7E7FD /* Pods_FixUITests.framework */; };
 		747D91DCBA770988C403915A /* Pods_FixTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE291B9BECFD344FE442BE8A /* Pods_FixTests.framework */; };
 		879F2C43202275BB00EF67B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879F2C42202275BB00EF67B2 /* AppDelegate.swift */; };
-		879F2C45202275BB00EF67B2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879F2C44202275BB00EF67B2 /* ViewController.swift */; };
 		879F2C48202275BB00EF67B2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 879F2C46202275BB00EF67B2 /* Main.storyboard */; };
 		879F2C4A202275BB00EF67B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 879F2C49202275BB00EF67B2 /* Assets.xcassets */; };
 		879F2C4D202275BB00EF67B2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 879F2C4B202275BB00EF67B2 /* LaunchScreen.storyboard */; };
 		879F2C58202275BC00EF67B2 /* FixTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879F2C57202275BC00EF67B2 /* FixTests.swift */; };
 		879F2C63202275BC00EF67B2 /* FixUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879F2C62202275BC00EF67B2 /* FixUITests.swift */; };
+		879F2C712022871200EF67B2 /* NowPlayingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879F2C702022871200EF67B2 /* NowPlayingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,7 +41,6 @@
 		536BFAAB5724B0A9AF96D477 /* Pods-FixUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FixUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FixUITests/Pods-FixUITests.release.xcconfig"; sourceTree = "<group>"; };
 		879F2C3F202275BB00EF67B2 /* Fix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fix.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		879F2C42202275BB00EF67B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		879F2C44202275BB00EF67B2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		879F2C47202275BB00EF67B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		879F2C49202275BB00EF67B2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		879F2C4C202275BB00EF67B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -52,6 +51,7 @@
 		879F2C5E202275BC00EF67B2 /* FixUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FixUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		879F2C62202275BC00EF67B2 /* FixUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixUITests.swift; sourceTree = "<group>"; };
 		879F2C64202275BC00EF67B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		879F2C702022871200EF67B2 /* NowPlayingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NowPlayingViewController.swift; sourceTree = "<group>"; };
 		A26F4F7D042B8ACF22E163CA /* Pods-FixTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FixTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FixTests/Pods-FixTests.release.xcconfig"; sourceTree = "<group>"; };
 		C127BD092829232F2EBBD16E /* Pods-FixTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FixTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FixTests/Pods-FixTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CE291B9BECFD344FE442BE8A /* Pods_FixTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FixTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -114,8 +114,8 @@
 		879F2C41202275BB00EF67B2 /* Fix */ = {
 			isa = PBXGroup;
 			children = (
+				879F2C702022871200EF67B2 /* NowPlayingViewController.swift */,
 				879F2C42202275BB00EF67B2 /* AppDelegate.swift */,
-				879F2C44202275BB00EF67B2 /* ViewController.swift */,
 				879F2C46202275BB00EF67B2 /* Main.storyboard */,
 				879F2C49202275BB00EF67B2 /* Assets.xcassets */,
 				879F2C4B202275BB00EF67B2 /* LaunchScreen.storyboard */,
@@ -446,7 +446,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				879F2C45202275BB00EF67B2 /* ViewController.swift in Sources */,
+				879F2C712022871200EF67B2 /* NowPlayingViewController.swift in Sources */,
 				879F2C43202275BB00EF67B2 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -698,6 +698,7 @@
 				879F2C69202275BC00EF67B2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		879F2C6A202275BC00EF67B2 /* Build configuration list for PBXNativeTarget "FixTests" */ = {
 			isa = XCConfigurationList;
@@ -706,6 +707,7 @@
 				879F2C6C202275BC00EF67B2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		879F2C6D202275BC00EF67B2 /* Build configuration list for PBXNativeTarget "FixUITests" */ = {
 			isa = XCConfigurationList;
@@ -714,6 +716,7 @@
 				879F2C6F202275BC00EF67B2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
