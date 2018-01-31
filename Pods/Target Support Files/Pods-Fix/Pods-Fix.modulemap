@@ -1,0 +1,6 @@
+framework module Pods_Fix {
+  umbrella header "Pods-Fix-umbrella.h"
+
+  export *
+  module * { export * }
+}
