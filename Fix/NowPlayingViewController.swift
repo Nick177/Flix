@@ -16,13 +16,27 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource {
     
     //List of Movies
     var movies: [[String: Any]] = []
+    var refreshControl: UIRefreshControl!
    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        refreshControl = UIRefreshControl()
+        
+        refreshControl.addTarget(self, action: #selector(NowPlayingViewController.didPullToRefresh(_:)), for: .valueChanged)
+        
+        tableView.insertSubview(refreshControl, at: 0)
+        
         tableView.dataSource = self
-        
-        
+        fetchMovies()
+    }
+    
+    func didPullToRefresh(_ refreshControl: UIRefreshControl){
+        fetchMovies()
+    }
+    
+    //Getting the infomation
+    func fetchMovies(){
         //API Setup
         let url = URL(string: "https://api.themoviedb.org/3/movie/now_playing?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed")!
         
@@ -40,22 +54,21 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource {
                 let movies = dataDictionary["results"] as! [[String: Any]]
                 self.movies = movies
                 self.tableView.reloadData()
-                
-//                for movie in movies{
-//                    let title = movie["title"] as! String
-//                    print(title)
-//                }
-               // print(dataDictionary)
+                self.refreshControl.endRefreshing()
             }
         }
         
         task.resume()
     }
+        
+    
+    
     
     //The number of cells
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return movies.count
     }
+    
     
     //Dislaying the information from API
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -84,15 +97,5 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
