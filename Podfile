@@ -6,6 +6,7 @@ target 'Fix' do
   use_frameworks!
 
   # Pods for Fix
+  pod 'AlamofireImage' '~> 3.3'
   pod 'Alamofire', '~> 4.4'
   # Add additional dependencies
   pod 'OAuthSwift', '~> 1.1.0'
