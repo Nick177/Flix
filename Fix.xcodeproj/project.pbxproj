@@ -122,10 +122,10 @@
 		879F2C41202275BB00EF67B2 /* Fix */ = {
 			isa = PBXGroup;
 			children = (
+				879F2C46202275BB00EF67B2 /* Main.storyboard */,
 				87ABEFFE2029162900B1C1FA /* views */,
 				87ABEFFD2029160C00B1C1FA /* viewController */,
 				879F2C42202275BB00EF67B2 /* AppDelegate.swift */,
-				879F2C46202275BB00EF67B2 /* Main.storyboard */,
 				879F2C49202275BB00EF67B2 /* Assets.xcassets */,
 				879F2C4B202275BB00EF67B2 /* LaunchScreen.storyboard */,
 				879F2C4E202275BB00EF67B2 /* Info.plist */,
