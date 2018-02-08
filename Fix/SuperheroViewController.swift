@@ -56,6 +56,17 @@ class SuperheroViewController: UIViewController, UICollectionViewDataSource {
         return cell
     }
     
+    //Moving a movie info to DetailViewController
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+        let cell = sender as! UICollectionViewCell
+        if let indexPath = collectionView.indexPath(for: cell) {
+            let movie = movies[indexPath.row]
+            let detailViewController = segue.destination as! DetailViewController
+            detailViewController.movie = movie
+            }
+    }
+
+
     
     func fetchMovies(){
         //API Setup
