@@ -45,7 +45,12 @@ class DetailViewController: UIViewController {
         }
 
     }
-
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let trailerViewController = segue.destination as! TrailerViewController
+        trailerViewController.movie = movie
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
 
