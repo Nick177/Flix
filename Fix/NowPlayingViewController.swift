@@ -31,7 +31,7 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource {
         
         tableView.dataSource = self
         tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 120
+        tableView.estimatedRowHeight = 50
         
         
         
