@@ -24,7 +24,8 @@ class Movie{
         overviewLabel = dictionary["overview"] as! String
         backDropPathString = URL(string:baseURLString + (dictionary["backdrop_path"] as! String))
         releaseDate = dictionary["release_date"] as! String
-        id = dictionary ["id"] as! String
+        let idNum = dictionary["id"] as! Int
+        id = "\(idNum)"
         // Set the rest of the properties
     }
     

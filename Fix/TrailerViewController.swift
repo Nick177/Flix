@@ -11,7 +11,6 @@ import UIKit
 class TrailerViewController: UIViewController {
 
     @IBOutlet weak var webView: UIWebView!
-    var trailer: [[String: Any]] = []
     var movie: Movie!
 
     
@@ -22,11 +21,11 @@ class TrailerViewController: UIViewController {
     }
 //ToDo:******************
     func fetchMovies() {
-        MovieApiManager().trailerPlaying(completion: {(movies: URLRequest, error: Error?) in
-//            if let movies = movies {
-//                self.movies = movies
-//                self.tableView.reloadData()
-//            }
+        MovieApiManager().trailerPlaying(id: self.movie.id, completion: {(urlrequest: URLRequest?, error: Error?) in
+           if let request = urlrequest {
+                //self.movie = movies
+                self.webView.loadRequest(request)
+            }
             
         })
     }

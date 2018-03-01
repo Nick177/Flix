@@ -12,7 +12,7 @@ class SuperheroViewController: UIViewController, UICollectionViewDataSource {
 
     @IBOutlet var collectionView: UICollectionView!
     
-    var movies: [[String: Any]] = []
+    var movies: [Movie]!//[[String: Any]] = []
   
     
     override func viewDidLoad() {
@@ -37,7 +37,11 @@ class SuperheroViewController: UIViewController, UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return movies.count
+        if movies != nil {
+            return movies.count
+        } else {
+            return 0
+        }
     }
     
     
@@ -45,14 +49,14 @@ class SuperheroViewController: UIViewController, UICollectionViewDataSource {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PosterCell", for: indexPath) as! PosterCell
         
-        let movie = movies[indexPath.item]
-        
-        if let posterPathString = movie["poster_path"] as? String{
-            let baseURLString = "https://image.tmdb.org/t/p/w500"
-            let posterURL = URL(string: baseURLString + posterPathString)!
-            cell.posterImageView.af_setImage(withURL: posterURL)
-        }
-        
+//        let movie = movies[indexPath.item]
+//        
+//        if let posterPathString = movie["poster_path"] as? String{
+//            let baseURLString = "https://image.tmdb.org/t/p/w500"
+//            let posterURL = URL(string: baseURLString + posterPathString)!
+//            cell.posterImageView.af_setImage(withURL: posterURL)
+//        }
+        cell.movie = movies[indexPath.row]
         return cell
     }
     
@@ -70,29 +74,37 @@ class SuperheroViewController: UIViewController, UICollectionViewDataSource {
     
     func fetchMovies(){
         //API Setup
-        let url = URL(string: "https://api.themoviedb.org/3/movie/297762/similar?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed&language=en-US&page=2")!
-        
-        let request = URLRequest(url: url, cachePolicy: .reloadRevalidatingCacheData, timeoutInterval: 10)
-        
-        let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
-        
-        let task = session.dataTask(with: request){(data, response, error) in
-            //This will run whe the network request returns
-            if let error = error{
-                print(error.localizedDescription)
-            }else if let data = data{
-                let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
-                
-                let movies = dataDictionary["results"] as! [[String: Any]]
+//        let url = URL(string: "https://api.themoviedb.org/3/movie/297762/similar?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed&language=en-US&page=2")!
+//        
+//        let request = URLRequest(url: url, cachePolicy: .reloadRevalidatingCacheData, timeoutInterval: 10)
+//        
+//        let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
+//        
+//        let task = session.dataTask(with: request){(data, response, error) in
+//            //This will run whe the network request returns
+//            if let error = error{
+//                print(error.localizedDescription)
+//            }else if let data = data{
+//                let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
+//                
+//                let movies = dataDictionary["results"] as! [[String: Any]]
+//                self.movies = movies
+//                self.collectionView.reloadData()
+//                //self.refreshControl.endRefreshing()
+//                
+//            }
+//        }
+//        
+//        
+//        task.resume()
+        MovieApiManager().superheroMovies { (movies: [Movie]?, error: Error?) in
+            if error != nil {
+                print(error!.localizedDescription)
+            } else {
                 self.movies = movies
                 self.collectionView.reloadData()
-                //self.refreshControl.endRefreshing()
-                
             }
         }
-        
-        
-        task.resume()
     }
     
     

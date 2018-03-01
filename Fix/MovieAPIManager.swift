@@ -15,7 +15,7 @@ class MovieApiManager {
     static let youtubeURL = "https://www.youtube.com/watch?v="
 
     var session: URLSession
-    var movie: Movie!
+    //var movie: Movie!
     var trailer: [[String: Any]] = []
 
 
@@ -44,8 +44,8 @@ class MovieApiManager {
   
     //ToDo:******************
 
-    func trailerPlaying(completion: @escaping(URLRequest, Error?) -> ()) {
-        let url = URL(string: "https://api.themoviedb.org/3/movie/" + movie.id + "/videos?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed&language=en-US")!
+    func trailerPlaying(id: String, completion: @escaping(URLRequest, Error?) -> ()) {
+        let url = URL(string: "https://api.themoviedb.org/3/movie/" + id + "/videos?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed&language=en-US")!
         
         let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
         let task = session.dataTask(with: request) { (data, response, error) in
@@ -58,7 +58,7 @@ class MovieApiManager {
                 let movies = dataDictionary["results"] as! [[String: Any]]
                 
                 self.trailer = movies
-                print(movies)
+                //print(movies)
                 
                 let officialTrailer = self.trailer[0]
                 let key = officialTrailer["key"] as! String
@@ -72,9 +72,37 @@ class MovieApiManager {
                 let request = URLRequest(url: requestURL!)
                 //print(type(of:request))
                  completion(request,nil)
-               // self.webView.loadRequest(request)
             }
         }
         task.resume()
     }
+    
+    
+    func superheroMovies(completion: @escaping ([Movie]?, Error?) -> ()) {
+        let url = URL(string: "https://api.themoviedb.org/3/movie/297762/similar?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed&language=en-US&page=2")!
+        
+        let request = URLRequest(url: url, cachePolicy: .reloadRevalidatingCacheData, timeoutInterval: 10)
+        
+        let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
+        
+        let task = session.dataTask(with: request){(data, response, error) in
+            //This will run whe the network request returns
+            if let error = error{
+                print(error.localizedDescription)
+            }else if let data = data{
+                let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
+                
+                let moviesDictionary = dataDictionary["results"] as! [[String: Any]]
+                let movies = Movie.movies(dictionaries: moviesDictionary)
+                //self.movies = movies
+                //self.collectionView.reloadData()
+                //self.refreshControl.endRefreshing()
+                completion(movies, nil)
+            }
+        }
+        
+        
+        task.resume()
+    }
+    
 }
