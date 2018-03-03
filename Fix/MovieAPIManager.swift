@@ -105,4 +105,31 @@ class MovieApiManager {
         task.resume()
     }
     
+    func popularMovies(completion: @escaping ([Movie]?, Error?) -> ()) {
+        let url = URL(string: "https://api.themoviedb.org/3/movie/popular?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed&language=en-US&page=1")!
+        
+        let request = URLRequest(url: url, cachePolicy: .reloadRevalidatingCacheData, timeoutInterval: 10)
+        
+        let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
+        
+        let task = session.dataTask(with: request){(data, response, error) in
+            //This will run whe the network request returns
+            if let error = error{
+                print(error.localizedDescription)
+            }else if let data = data{
+                let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
+                
+                let moviesDictionary = dataDictionary["results"] as! [[String: Any]]
+                let movies = Movie.movies(dictionaries: moviesDictionary)
+                //self.movies = movies
+                //self.collectionView.reloadData()
+                //self.refreshControl.endRefreshing()
+                completion(movies, nil)
+            }
+        }
+        
+        
+        task.resume()
+    }
+    
 }

@@ -23,6 +23,7 @@
 		87ABF0002029169300B1C1FA /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87ABEFFF2029169300B1C1FA /* DetailViewController.swift */; };
 		899375082024506600344766 /* PosterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899375072024506600344766 /* PosterCell.swift */; };
 		8993750A202450D300344766 /* SuperheroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89937509202450D300344766 /* SuperheroViewController.swift */; };
+		899BE090204A2943008E230D /* PopularViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899BE08F204A2943008E230D /* PopularViewController.swift */; };
 		F615DD2620312C220077E4A7 /* TrailerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F615DD2520312C220077E4A7 /* TrailerViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -65,6 +66,7 @@
 		87ABEFFF2029169300B1C1FA /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		899375072024506600344766 /* PosterCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PosterCell.swift; sourceTree = "<group>"; };
 		89937509202450D300344766 /* SuperheroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuperheroViewController.swift; sourceTree = "<group>"; };
+		899BE08F204A2943008E230D /* PopularViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopularViewController.swift; sourceTree = "<group>"; };
 		A26F4F7D042B8ACF22E163CA /* Pods-FixTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FixTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FixTests/Pods-FixTests.release.xcconfig"; sourceTree = "<group>"; };
 		C127BD092829232F2EBBD16E /* Pods-FixTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FixTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FixTests/Pods-FixTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CE291B9BECFD344FE442BE8A /* Pods_FixTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FixTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -182,6 +184,7 @@
 				87ABEFFF2029169300B1C1FA /* DetailViewController.swift */,
 				89937509202450D300344766 /* SuperheroViewController.swift */,
 				F615DD2520312C220077E4A7 /* TrailerViewController.swift */,
+				899BE08F204A2943008E230D /* PopularViewController.swift */,
 			);
 			name = viewController;
 			sourceTree = "<group>";
@@ -505,6 +508,7 @@
 				8729D3932047679000F21C10 /* MovieAPIManager.swift in Sources */,
 				8993750A202450D300344766 /* SuperheroViewController.swift in Sources */,
 				879F2C43202275BB00EF67B2 /* AppDelegate.swift in Sources */,
+				899BE090204A2943008E230D /* PopularViewController.swift in Sources */,
 				879C9A052022C05C00558C59 /* MovieCell.swift in Sources */,
 				8729D390204761EA00F21C10 /* Movie.swift in Sources */,
 				87ABF0002029169300B1C1FA /* DetailViewController.swift in Sources */,
